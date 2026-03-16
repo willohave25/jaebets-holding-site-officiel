@@ -1586,6 +1586,11 @@ section {
 }
 
 /* Tableaux tarifs */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .tarif-table {
     width: 100%;
     border-collapse: collapse;
