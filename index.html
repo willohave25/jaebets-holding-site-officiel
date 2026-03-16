@@ -137,6 +137,92 @@
             animation: fadeIn 1.5s ease-out 0.9s both;
         }
 
+        /* Loader cercle animé */
+        .loader-section {
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-out 1s both;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .loader-ring {
+            width: 56px;
+            height: 56px;
+            position: relative;
+        }
+
+        .loader-ring .circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .loader-ring .circle-1 {
+            border-top-color: var(--or);
+            animation: spin 2s linear infinite;
+        }
+
+        .loader-ring .circle-2 {
+            border-right-color: var(--turquoise);
+            animation: spin 3s linear infinite reverse;
+        }
+
+        .loader-ring .circle-3 {
+            width: 40px;
+            height: 40px;
+            top: 8px;
+            left: 8px;
+            border-bottom-color: rgba(200, 169, 81, 0.4);
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(200, 169, 81, 0.6);
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Barre de progression simulée */
+        .progress-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(90deg, var(--or), var(--turquoise));
+            border-radius: 1px;
+            animation: progressPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes progressPulse {
+            0%, 100% { width: 55%; opacity: 0.7; }
+            50% { width: 75%; opacity: 1; }
+        }
+
         /* Activités */
         .activities {
             display: flex;
@@ -286,6 +372,19 @@
         <h2>Notre nouveau site<br>arrive <span>bientôt</span></h2>
         <p class="subtitle">Nous préparons une expérience digitale à la hauteur<br>de nos ambitions et de votre confiance.</p>
 
+        <!-- Loader animé -->
+        <div class="loader-section">
+            <div class="loader-ring">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+            <span class="loader-text">Mise à jour en cours</span>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+
         <!-- Activités -->
         <div class="activities">
             <span class="activity-tag">Construction</span>
@@ -303,15 +402,11 @@
             <div class="contact-links">
                 <a href="tel:+2250707755707" class="phone">+225 07 07 75 57 07</a>
                 <a href="tel:+2252731947165">+225 27 31 94 71 65</a>
-                <a href="mailto:infos@jaebets-holding.com">infos@jaebets-holding.com</a>
+                <a href="/cdn-cgi/l/email-protection#f990979f968ab993989c9b9c8d8ad49196959d90979ed79a9694"><span class="__cf_email__" data-cfemail="2b42454d44586b414a4e494e5f58064344474f42454c05484446">[email&#160;protected]</span></a>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2025 JAEBETS HOLDING SARL — Abidjan, Côte d'Ivoire<br>
-        Propulsé par <a href="mailto:contact@w2k-digital.com">W2K-Digital</a></p>
-    </div>
-</body>
-</html>
+        <p>&copy; 2025 JAEBETS HOLDING
