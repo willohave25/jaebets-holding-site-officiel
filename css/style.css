@@ -1753,6 +1753,74 @@ textarea.form-control {
 }
 
 /* ============================================
+   MISSION / VISION / VALEURS GRID
+   ============================================ */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ============================================
+   ÉQUIPE DIRIGEANTE
+   ============================================ */
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.equipe-card {
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--blanc);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--neutre-moyen);
+    transition: all var(--transition);
+}
+
+.equipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ombre-elevee);
+    border-color: var(--or-premium);
+}
+
+.equipe-avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--bleu-marine), rgba(27, 42, 74, 0.8));
+    color: var(--or-premium);
+    border-radius: 50%;
+    font-size: 1.75rem;
+}
+
+.equipe-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.equipe-poste {
+    display: block;
+    font-family: var(--font-titre);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--turquoise);
+    margin-bottom: 12px;
+}
+
+.equipe-card p {
+    font-size: 0.85rem;
+    color: var(--texte-secondaire);
+    margin-bottom: 0;
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
@@ -1817,6 +1885,14 @@ textarea.form-control {
     }
 
     .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mission-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .equipe-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1935,6 +2011,14 @@ textarea.form-control {
     }
 
     .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .equipe-grid {
         grid-template-columns: 1fr;
     }
 
