@@ -334,9 +334,11 @@
                 group.appendChild(label);
 
                 var input;
+                var fieldName = field.label.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_');
                 if (field.type === 'select') {
                     input = document.createElement('select');
                     input.className = 'form-control';
+                    input.name = fieldName;
                     var defaultOpt = document.createElement('option');
                     defaultOpt.value = '';
                     defaultOpt.textContent = 'Sélectionnez...';
@@ -350,16 +352,19 @@
                 } else if (field.type === 'textarea') {
                     input = document.createElement('textarea');
                     input.className = 'form-control';
+                    input.name = fieldName;
                     input.placeholder = field.placeholder || '';
                     input.rows = 4;
                 } else if (field.type === 'date') {
                     input = document.createElement('input');
                     input.type = 'date';
                     input.className = 'form-control';
+                    input.name = fieldName;
                 } else {
                     input = document.createElement('input');
                     input.type = 'text';
                     input.className = 'form-control';
+                    input.name = fieldName;
                     input.placeholder = field.placeholder || '';
                 }
 
@@ -378,7 +383,7 @@
         });
     }
 
-    /* Validation formulaire contact */
+    /* Validation et envoi formulaire contact via Formspree */
     var contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
@@ -405,24 +410,52 @@
             });
 
             if (isValid) {
-                // Simulation envoi
                 var submitBtn = contactForm.querySelector('button[type="submit"]');
                 if (submitBtn) {
-                    submitBtn.textContent = 'Envoi en cours...';
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
                     submitBtn.disabled = true;
                 }
-                setTimeout(function () {
-                    alert('Merci ! Votre message a été envoyé. Nous vous répondrons sous 24h.');
-                    contactForm.reset();
-                    if (dynamicFields) dynamicFields.innerHTML = '';
-                    contactForm.querySelectorAll('.form-group').forEach(function (g) {
-                        g.classList.remove('success', 'error');
-                    });
+
+                /* Collecter toutes les données du formulaire */
+                var formData = new FormData(contactForm);
+
+                /* Ajouter les champs dynamiques au FormData */
+                var dynamicInputs = document.querySelectorAll('#dynamicFields .form-control');
+                dynamicInputs.forEach(function (input) {
+                    var label = input.previousElementSibling || input.closest('.form-group').querySelector('.form-label');
+                    var fieldName = label ? label.textContent.trim() : 'champ_supplementaire';
+                    if (input.value.trim()) {
+                        formData.append(fieldName, input.value.trim());
+                    }
+                });
+
+                /* Envoi via Formspree */
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function (response) {
+                    if (response.ok) {
+                        alert('Merci ! Votre message a été envoyé avec succès. Nous vous répondrons sous 24h.');
+                        contactForm.reset();
+                        if (dynamicFields) dynamicFields.innerHTML = '';
+                        contactForm.querySelectorAll('.form-group').forEach(function (g) {
+                            g.classList.remove('success', 'error');
+                        });
+                    } else {
+                        alert('Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone au +225 07 03 28 53 59.');
+                    }
                     if (submitBtn) {
-                        submitBtn.textContent = 'Envoyer le message';
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
                         submitBtn.disabled = false;
                     }
-                }, 1500);
+                }).catch(function () {
+                    alert('Erreur de connexion. Veuillez vérifier votre connexion internet ou nous appeler au +225 07 03 28 53 59.');
+                    if (submitBtn) {
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+                        submitBtn.disabled = false;
+                    }
+                });
             }
         });
     }
