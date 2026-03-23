@@ -481,7 +481,7 @@ p {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(27, 42, 74, 0.85) 0%, rgba(27, 42, 74, 0.6) 50%, rgba(46, 196, 182, 0.3) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
 }
 
 .hero-content {
@@ -513,15 +513,17 @@ p {
     font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.15;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1.15rem;
     margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-cta {
@@ -1405,7 +1407,7 @@ section {
 }
 
 .hero-inner .hero-overlay {
-    background: linear-gradient(135deg, rgba(27, 42, 74, 0.88) 0%, rgba(27, 42, 74, 0.7) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .hero-inner .hero-content {
@@ -1415,6 +1417,17 @@ section {
 
 .hero-inner h1 {
     font-size: 2.5rem;
+    color: var(--blanc);
+}
+
+.hero-inner .hero-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-inner .hero-badge {
+    color: var(--or-premium);
+    border-color: var(--or-premium);
+    background: rgba(200, 169, 81, 0.25);
 }
 
 /* ============================================
