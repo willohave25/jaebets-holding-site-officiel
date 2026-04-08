@@ -1876,6 +1876,195 @@ textarea.form-control {
 }
 
 /* ============================================
+   PAGE ACTUALITÉS
+   ============================================ */
+.actualite-article {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.actualite-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--neutre-moyen);
+}
+
+.actualite-date,
+.actualite-categorie {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-titre);
+    font-size: 0.85rem;
+    color: var(--texte-secondaire);
+    font-weight: 500;
+}
+
+.actualite-date i,
+.actualite-categorie i {
+    color: var(--turquoise);
+}
+
+.actualite-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background: var(--or-premium);
+    color: var(--blanc);
+    font-family: var(--font-titre);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+}
+
+.actualite-article h2 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: var(--bleu-marine);
+    line-height: 1.3;
+}
+
+.actualite-article h3 {
+    font-size: 1.4rem;
+    margin: 40px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--or-premium);
+    color: var(--bleu-marine);
+}
+
+.actualite-article h4 {
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+    color: var(--bleu-marine);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.actualite-article h4 i {
+    color: var(--turquoise);
+}
+
+.actualite-intro {
+    background: var(--neutre-clair);
+    padding: 28px 32px;
+    border-left: 4px solid var(--or-premium);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin-bottom: 32px;
+}
+
+.actualite-intro p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.actualite-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.actualite-highlight {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--blanc);
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 2px dashed var(--or-premium);
+}
+
+.actualite-highlight strong {
+    display: block;
+    font-family: var(--font-titre);
+    font-size: 1.3rem;
+    color: var(--bleu-marine);
+    margin-bottom: 8px;
+}
+
+.actualite-date-launch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--turquoise);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.actualite-image {
+    margin: 32px 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--ombre-carte);
+}
+
+.actualite-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.zone-block {
+    margin: 40px 0;
+    padding: 28px;
+    background: var(--neutre-clair);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--neutre-moyen);
+}
+
+.zone-block .content-grid {
+    gap: 32px;
+}
+
+.zone-block .content-image {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--ombre-legere);
+}
+
+.zone-arrets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.zone-arrets li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--blanc);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--texte-principal);
+    transition: all var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.zone-arrets li:hover {
+    border-left-color: var(--or-premium);
+    transform: translateX(4px);
+}
+
+.zone-arrets li i {
+    color: var(--turquoise);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.zone-arrets li em {
+    color: var(--or-premium);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
@@ -2006,6 +2195,22 @@ textarea.form-control {
 
     .temoignages-carousel {
         padding: 0 16px;
+    }
+
+    .actualite-article h2 {
+        font-size: 1.5rem;
+    }
+
+    .actualite-meta {
+        gap: 10px;
+    }
+
+    .actualite-intro {
+        padding: 20px;
+    }
+
+    .zone-block {
+        padding: 20px;
     }
 
     .carousel-btn {
