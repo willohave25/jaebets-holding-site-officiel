@@ -351,4 +351,37 @@
     </footer>
 
     <!-- WhatsApp -->
-    <a href="https://wa.me/2250703285359" class="whatsapp-floa
+    <a href="https://wa.me/2250703285359" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacter via WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- JAEBETS Assistant Virtuel 24/24 -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <button class="chatbot-toggle" id="chatbotToggle" aria-label="Ouvrir l'assistant virtuel JAEBETS">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chatbot-badge" id="chatbotBadge">1</span>
+        </button>
+        <div class="chatbot-box" id="chatbotBox" role="dialog" aria-label="Assistant virtuel JAEBETS">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar"><i class="fas fa-robot"></i></div>
+                    <div>
+                        <h4>JAEBETS Assistant</h4>
+                        <span class="chatbot-status"><span class="chatbot-dot"></span>En ligne 24/24</span>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Fermer l'assistant"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+            <div class="chatbot-suggestions" id="chatbotSuggestions"></div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbotInput" placeholder="Posez votre question..." autocomplete="off" maxlength="200">
+                <button id="chatbotSend" aria-label="Envoyer"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auto-scroll.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>W2KAutoScroll.init({ speed: 'slow', pauseDuration: 12, inactivityDelay: 45, showIndicator: true });</script>
+</body>
+</html>
